@@ -13,7 +13,7 @@ const postBookNew = (request, h) => {
     readPage,
     reading} = request.payload;
 
-  const id = nanoid(10);
+  const id = nanoid(16);
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
   const finished = pageCount == readPage ? true : false;
