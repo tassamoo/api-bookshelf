@@ -2,7 +2,7 @@ const {nanoid} = require('nanoid');
 const books = require('./bookshelf');
 
 
-const postNewBook = (request, h) => {
+const postBookNew = (request, h) => {
   const {
     name,
     year,
@@ -73,7 +73,7 @@ const postNewBook = (request, h) => {
 };
 ;
 
-const showAllBook = (request, h) => {
+const showBookAll = (request, h) => {
   const allBooks = books.map((book)=>{
     return {
       'id': book.id,
@@ -91,7 +91,7 @@ const showAllBook = (request, h) => {
   return response;
 };
 
-const getBookById = (request, h) => {
+const getBookId = (request, h) => {
   const {id} = request.params;
   const book = books.filter((book) => book.id === id)[0];
   if (book === undefined) {
@@ -111,7 +111,7 @@ const getBookById = (request, h) => {
   };
 };
 
-const editBookById = (request, h) => {
+const editBookId = (request, h) => {
   const {name,
     year,
     author,
@@ -184,7 +184,7 @@ const editBookById = (request, h) => {
   }
 };
 
-const deleteBookById = (request, h) => {
+const deleteBookId = (request, h) => {
   const {id} = request.params;
   const book = books.findIndex((book) => book.id === id);
 
@@ -207,8 +207,8 @@ const deleteBookById = (request, h) => {
 };
 
 module.exports = {
-  postNewBook,
-  showAllBook,
-  getBookById,
-  editBookById,
-  deleteBookById};
+  postBookNew,
+  showBookAll,
+  getBookId,
+  editBookId,
+  deleteBookId};
