@@ -1,25 +1,35 @@
-const {createBooksHandler} = require('./handler')
-
-const routes = [
+const {
+    postNewBook,
+    showAllBook,
+    getBookById,
+    editBookById,
+    deleteBookById} = require('./handler');
+  const routes = [
     {
-        method:'GET',
-        path:'/',
-        handler: ()=>{
-            return "This is a homepage"
-        }
+      method: 'POST',
+      path: '/books',
+      handler: postNewBook,
     },
     {
-        method:'*',
-        path:'/',
-        handler: () => {
-            return 'Cannot access using this method'
-        }
+      method: 'GET',
+      path: '/books',
+      handler: showAllBook,
     },
     {
-        method:'POST',
-        path:'/books',
-        handler: createBooksHandler
-    }
-]
-
-module.exports = routes
+      method: 'GET',
+      path: '/books/{id}',
+      handler: getBookById,
+    },
+    {
+      method: 'PUT',
+      path: '/books/{id}',
+      handler: editBookById,
+    },
+    {
+      method: 'DELETE',
+      path: '/books/{id}',
+      handler: deleteBookById,
+    },
+  ];
+  
+  module.exports = routes;
