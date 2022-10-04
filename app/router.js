@@ -1,4 +1,5 @@
-const {createBooksHandler} = require('./handler.js')
+const {createBooksHandler} = require('./handler')
+
 const router = [
     {
         method:'GET',
