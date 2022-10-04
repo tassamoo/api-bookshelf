@@ -4,8 +4,8 @@ const {
     getBookId,
     editBookId,
     deleteBookId,
-    } = require('./handler');
-    
+    } = require('./handler') 
+
   const routes = [
     {
       method: 'POST',
@@ -32,6 +32,6 @@ const {
       path: '/books/{id}',
       handler: deleteBookId,
     },
-  ];
+  ] 
   
-  module.exports = routes;
+  module.exports = routes 
