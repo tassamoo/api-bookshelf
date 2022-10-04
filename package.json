@@ -1,7 +1,7 @@
 {
   "name": "rest-api-bookshelf",
   "version": "1.0.0",
-  "description": "",
+  "description": "bookshelf api for dicoding submission",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./main.js",

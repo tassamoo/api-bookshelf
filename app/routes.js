@@ -1,6 +1,6 @@
 const {createBooksHandler} = require('./handler')
 
-const router = [
+const routes = [
     {
         method:'GET',
         path:'/',
@@ -22,4 +22,4 @@ const router = [
     }
 ]
 
-module.exports = router
+module.exports = routes

@@ -1,10 +1,14 @@
-const bookshelf =require('./bookshelf')
 const {nanoid}  = require('nanoid')
+const bookshelf =require('./bookshelf')
+
 
 const createBooksHandler = (request, h)=>{
 
     const id =nanoid(16)
-    
+    const finished = isFinished(readPage, pageCount)
+    const insertedAt = new Date().toISOString()
+    const updatedAt = insertedAt
+
     const {
         name, 
         year, 
@@ -25,11 +29,6 @@ const createBooksHandler = (request, h)=>{
             return false
         }
     }
-    const finished = isFinished(readPage, pageCount)
-
-
-    const insertedAt = new Date().toISOString()
-    const updatedAt = insertedAt
 
     const newBook = {
         
@@ -53,6 +52,7 @@ const createBooksHandler = (request, h)=>{
     if(isSuccess){
         const res = h.response({
           status:'success',
+          message:'Buku berhasil ditambahkan',
           data:{
             bookId:id
           }  
@@ -63,7 +63,7 @@ const createBooksHandler = (request, h)=>{
 
     const res = h.response({
         status:'error',
-        message: 'books failed to add'
+        message: 'Buku gagal ditambahkan'
 
     })
     res.code(500)
